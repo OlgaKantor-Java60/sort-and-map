@@ -27,17 +27,14 @@ function comp2(a, b){
   if (typeof a == 'number' && typeof b == 'number')
     res = b-a;
   if (typeof b == 'string' && typeof a == 'string')
-    res = a-b;
+    a>b ? res = 1 : res = -1;
   return res;
 }
 
 
 function orderedList(arr) {
   const arr2 = arr.map(function (e) {
-    let res =
-      typeof e == "number" ? 
-      (e = `<li class="item item_number">${e}</li>`) : 
-      (e = `<li class="item">${e}</li>`);
+    let res = e = `<li class="item ${typeof e == "number" ? 'item_number': ''}">${e}</li>`
     return res;
   });
   const result = arr2.join(" ");
